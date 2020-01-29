@@ -33,9 +33,9 @@ namespace Includescript{
 
 namespace FactoryMethod_DesignPattern
 {
-	abstract class ElectronicProduct {
-		//Common property
-		  public $Name;
+    abstract class ElectronicProduct {
+         //Common property
+          public $Name;
           public $Memory;
           public $Description;
 
@@ -43,30 +43,27 @@ namespace FactoryMethod_DesignPattern
           abstract public function GetMemory();
           abstract public function SetMemory($value);
      }
-
+	
     //'ConcreteProduct' Class
-	class MobilePhone extends ElectronicProduct
-	{  
-	    public function __construct()
-	    {
-	        $this->Name = "Nokia";
-	        $this->Memory = "8 GB";
-	        $this->Description = "It's famous mobile phone in india";
-	    }
-
+    class MobilePhone extends ElectronicProduct
+     {  
+        public function __construct()
+        {
+	  $this->Name = "Nokia";
+	  $this->Memory = "8 GB";
+	  $this->Description = "It's famous mobile phone in india";
+        }
         public function GetMemory()
         {
             return $this->Memory;
-        } 
-
+        }    
         public function SetMemory($value)
         {
           $this->Memory = $value;
         }
-	}
-    
-
-	//'ConcreteProduct' Class
+     }
+	
+    //'ConcreteProduct' Class
     class Laptop extends ElectronicProduct
     {
         public function __construct()
@@ -75,18 +72,16 @@ namespace FactoryMethod_DesignPattern
             $this->Memory = "500 GB";
             $this->Description = "It's famous labtop in india";       
         }
-       
         public function GetMemory()
         {
             return $this->Memory;
         } 
-     
-       public function SetMemory($value)
+        public function SetMemory($value)
         {     
             $this->Memory = $value;
         }    
     }
-    
+	
     //'ConcreteProduct' Class     
     class ExternalHardDrive extends ElectronicProduct
     {   	
@@ -96,12 +91,10 @@ namespace FactoryMethod_DesignPattern
             $this->Memory = "1 TB";
             $this->Description = "It's famous External Hard Drive in india";
         }
-
         public function GetMemory()
         {
             return $this->Memory;
-        } 
-       
+        }    
         public function SetMemory($value)
         {
             $this->Memory = $value;
@@ -109,13 +102,12 @@ namespace FactoryMethod_DesignPattern
     }
 
    //Different product that can be created by the factory
-    class AvailableDetails
+    class AvailableProducts
     {
         public function __construct()
         {
            $this->Available_Products = array('mobilephone'=>'mobilephone','laptop'=>'laptop','externalharddrive'=>'externalharddrive');
-        }  
-        
+        }     
     }
 
    //'IProduct' Interface
@@ -163,8 +155,8 @@ namespace FactoryMethod_DesignPattern
 
         public function display_product_callback()
         {
-        	 $data          = $_POST['pname'];
-             $details       = new AvailableDetails();
+             $data          = $_POST['pname'];
+             $details       = new AvailableProducts();
              $check_product = $details->Available_Products;
               
             if(array_key_exists($data,$check_product))
@@ -185,7 +177,7 @@ namespace FactoryMethod_DesignPattern
         {
             $memory        = $_POST['memory'];
             $pname         = $_POST['pname'];
-            $all_products  = new AvailableDetails();
+            $all_products  = new AvailableProducts();
             $check         = $all_products->Available_Products;
             if(array_key_exists($pname,$check))
             {
