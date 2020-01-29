@@ -18,10 +18,10 @@ namespace Includescript{
 	  
     public function design_more_scripts() {
  
-     wp_register_script('design_pattern', plugins_url(). '/Design-pattern/js/factory.js', array( 'jquery' ) );
+     wp_register_script('design_pattern', plugins_url(). '/Design-pattern/js/script.js', array( 'jquery' ) );
      wp_enqueue_script( 'design_pattern');  
 
-     wp_enqueue_script( 'design_pattern',  plugins_url(). '/Design-pattern/js/factory.js', array( 'jquery' ));
+     wp_enqueue_script( 'design_pattern',  plugins_url(). '/Design-pattern/js/script.js', array( 'jquery' ));
      wp_localize_script( 'design_pattern', 'ajax_object', array( 'ajaxurl' =>admin_url( 'admin-ajax.php' ) ) );
       
    }
